@@ -8,8 +8,6 @@
 import Foundation
 
 class ListenerViewModel: ObservableObject {
-    @Published var isListening = false
-    
     var onSend: (_ message: String) -> Bool = { _ in false }
     
     func send(_ message: String) -> Bool {
