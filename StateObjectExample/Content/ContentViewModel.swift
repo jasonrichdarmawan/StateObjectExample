@@ -8,8 +8,8 @@
 import SwiftUI
 
 class ContentViewModel: ObservableObject {
-    @Published var pager: PageViewModel<BookView>
-    @Published var listener: ListenerViewModel
+    var pager: PageViewModel<BookView>
+    var listener: ListenerViewModel
     
     init() {
         let models = [
