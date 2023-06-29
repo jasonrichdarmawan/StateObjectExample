@@ -20,12 +20,20 @@ struct ButtonHighlight: View {
         self._state = StateObject(wrappedValue: ButtonHighlightViewModel(label))
     }
     
+    init(action: @escaping () -> Void, vm: ButtonHighlightViewModel) {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+        self.onAction = action
+        self._state = StateObject(wrappedValue: vm)
+    }
+    
     var body: some View {
         let cornerRadius = CGFloat(10)
         
         return Button(
             action: {
-                state.isHighlighted.toggle()
+                state.isHighlighted = true
                 onAction()
             },
             label: {

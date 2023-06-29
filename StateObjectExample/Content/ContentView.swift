@@ -20,22 +20,22 @@ struct ContentView: View {
         VStack {
             VStack {
                 Text("PageView")
-                PageView(vm: vm.pager)
+                PageView(vm: vm.pagerVM)
             }
             VStack {
                 Text("VisualCueView")
-                VisualCueView(pager: vm.pager)
+                VisualCueView(vm: vm.visualCueVM, pager: vm.pagerVM)
             }
             
             VStack {
                 Text("user input to ListenerViewModel")
                 HStack {
                     ButtonHighlight(
-                        action: { _ = vm.listener.send("back") },
+                        action: { _ = vm.listenerVM.send("back") },
                         label: "back"
                     )
                     ButtonHighlight(
-                        action: { _ = vm.listener.send("next") },
+                        action: { _ = vm.listenerVM.send("next") },
                         label: "next"
                     )
                 }

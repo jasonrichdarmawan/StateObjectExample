@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct VisualCueView<Page: View>: View {
+    @ObservedObject var vm: VisualCueViewModel
     @ObservedObject var pager: PageViewModel<Page>
     
-    init(pager: PageViewModel<Page>) {
+    init(vm: VisualCueViewModel, pager: PageViewModel<Page>) {
+        self.vm = vm
         self.pager = pager
 #if DEBUG
         print("\(type(of: self)) \(#function)")
@@ -22,13 +24,13 @@ struct VisualCueView<Page: View>: View {
             if !pager.beginningOfPage() {
                 ButtonHighlight(
                     action: { _ = pager.previousPage() },
-                    label: "previous"
+                    vm: vm.buttonHighlightVM["back"] ?? ButtonHighlightViewModel("back")
                 )
             }
             if !pager.endOfPage() {
                 ButtonHighlight(
                     action: { _ = pager.nextPage() },
-                    label: "next"
+                    vm: vm.buttonHighlightVM["next"] ?? ButtonHighlightViewModel("next")
                 )
             }
         }
