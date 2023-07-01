@@ -8,7 +8,8 @@
 import Foundation
 
 class ButtonHighlightViewModel: ObservableObject {
-    let label: String
+    var action: () -> Void
+    @Published var label: String
     @Published var isHighlighted: Bool = false {
         didSet {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
@@ -17,7 +18,11 @@ class ButtonHighlightViewModel: ObservableObject {
         }
     }
     
-    init(_ label: String) {
+    init(action: @escaping () -> Void, label: String) {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+        self.action = action
         self.label = label
     }
 }

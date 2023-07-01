@@ -28,19 +28,28 @@ class ContentViewModel: ObservableObject {
         )
         
         let visualCueVM = VisualCueViewModel()
+        visualCueVM.buttonHighlightVM[.next]!.action = { _ = pager.nextPage() }
+        visualCueVM.buttonHighlightVM[.previous]!.action = { _ = pager.previousPage() }
         
         let listener = ListenerViewModel()
         
-        listener.onSend = { message in
-            switch message {
-            case "next":
-                _ = pager.nextPage()
-                visualCueVM.buttonHighlightVM["next"]?.isHighlighted = true
-            case "back":
-                _ = pager.previousPage()
-                visualCueVM.buttonHighlightVM["back"]?.isHighlighted = true
-            default:
-                return false
+        listener.onSend = { key in
+            switch key {
+            case .next:
+                if let vm = visualCueVM.buttonHighlightVM[.next] {
+                    vm.action()
+                    vm.isHighlighted = true
+                }
+            case .previous:
+                if let vm = visualCueVM.buttonHighlightVM[.previous] {
+                    vm.action()
+                    vm.isHighlighted = true
+                }
+            case .destroy:
+                visualCueVM.buttonHighlightVM[.next]?.action = {}
+                visualCueVM.buttonHighlightVM[.next]?.label = "destroyed"
+                visualCueVM.buttonHighlightVM[.previous]?.action = {}
+                visualCueVM.buttonHighlightVM[.previous]?.label = "destroyed"
             }
             
             return true

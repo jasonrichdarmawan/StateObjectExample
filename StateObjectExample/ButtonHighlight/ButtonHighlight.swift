@@ -10,21 +10,17 @@ import SwiftUI
 struct ButtonHighlight: View {
     @StateObject var state: ButtonHighlightViewModel
     
-    var onAction: () -> Void
-    
     init(action: @escaping () -> Void, label: String) {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
-        self.onAction = action
-        self._state = StateObject(wrappedValue: ButtonHighlightViewModel(label))
+        self._state = StateObject(wrappedValue: ButtonHighlightViewModel(action: action, label: label))
     }
     
-    init(action: @escaping () -> Void, vm: ButtonHighlightViewModel) {
+    init(vm: ButtonHighlightViewModel) {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
-        self.onAction = action
         self._state = StateObject(wrappedValue: vm)
     }
     
@@ -34,7 +30,7 @@ struct ButtonHighlight: View {
         return Button(
             action: {
                 state.isHighlighted = true
-                onAction()
+                state.action()
             },
             label: {
                 Text(state.label)

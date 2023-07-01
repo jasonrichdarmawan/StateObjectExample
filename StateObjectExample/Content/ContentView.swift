@@ -31,12 +31,16 @@ struct ContentView: View {
                 Text("user input to ListenerViewModel")
                 HStack {
                     ButtonHighlight(
-                        action: { _ = vm.listenerVM.send("back") },
-                        label: "back"
+                        action: { _ = vm.listenerVM.send(.previous) },
+                        label: "previous"
                     )
                     ButtonHighlight(
-                        action: { _ = vm.listenerVM.send("next") },
+                        action: { _ = vm.listenerVM.send(.next) },
                         label: "next"
+                    )
+                    ButtonHighlight(
+                        action: { _ = vm.listenerVM.send(.destroy)},
+                        label: "destroy"
                     )
                 }
             }

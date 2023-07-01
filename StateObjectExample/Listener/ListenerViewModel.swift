@@ -7,10 +7,16 @@
 
 import Foundation
 
+enum ListenerKey: String {
+    case next
+    case previous
+    case destroy
+}
+
 class ListenerViewModel: ObservableObject {
-    var onSend: (_ message: String) -> Bool = { _ in false }
+    var onSend: (_ key: ListenerKey) -> Bool = { _ in false }
     
-    func send(_ message: String) -> Bool {
-        return onSend(message)
+    func send(_ key: ListenerKey) -> Bool {
+        return onSend(key)
     }
 }

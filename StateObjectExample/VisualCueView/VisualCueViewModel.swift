@@ -7,11 +7,16 @@
 
 import Foundation
 
+enum VisualCueKey {
+    case next
+    case previous
+}
+
 class VisualCueViewModel: ObservableObject {
-    var buttonHighlightVM: [String: ButtonHighlightViewModel] = [:]
+    var buttonHighlightVM: [VisualCueKey: ButtonHighlightViewModel] = [:]
     
     init() {
-        buttonHighlightVM["next"] = ButtonHighlightViewModel("next")
-        buttonHighlightVM["back"] = ButtonHighlightViewModel("back")
+        buttonHighlightVM[.next] = ButtonHighlightViewModel(action: {}, label: "next")
+        buttonHighlightVM[.previous] = ButtonHighlightViewModel(action: {}, label: "previous")
     }
 }

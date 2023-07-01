@@ -22,16 +22,10 @@ struct VisualCueView<Page: View>: View {
     var body: some View {
         HStack {
             if !pager.beginningOfPage() {
-                ButtonHighlight(
-                    action: { _ = pager.previousPage() },
-                    vm: vm.buttonHighlightVM["back"] ?? ButtonHighlightViewModel("back")
-                )
+                ButtonHighlight(vm: vm.buttonHighlightVM[.previous]!)
             }
             if !pager.endOfPage() {
-                ButtonHighlight(
-                    action: { _ = pager.nextPage() },
-                    vm: vm.buttonHighlightVM["next"] ?? ButtonHighlightViewModel("next")
-                )
+                ButtonHighlight(vm: vm.buttonHighlightVM[.next]!)
             }
         }
         .onAppear {
