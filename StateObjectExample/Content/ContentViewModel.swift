@@ -46,6 +46,26 @@ struct ContentViewModel {
         )
     }
     
+    /// static func to create `[VisualCueKey: buttonViewModel]`.
+    /// - Parameter pagerVM: pagerVM is a class. In Swift, class is a reference type.
+    /// Therefore, when passing class to a function, it will pass the reference instead of a copy
+    /// - Returns: copy of [VisualCueKey: ButtonViewModel]. In Swift, an array is a value type.
+    /// Therefore, when returning an array, it return a copied array.
+    /// However, since ButtonViewModel is a class. Any changes made to the ButtonViewModel object will be reflected to anything that points to it.
+    /// i.e.
+    /// ```
+    /// var dictionary1: [VisualCueKey: ButtonViewModel] = [
+    ///    .next: ButtonViewModel(label: "Next"),
+    ///    .previous: ButtonViewModel(label: "Previous")
+    /// ]
+    ///
+    /// var dictionary2 = dictionary1
+    ///
+    /// // Modifying the label of a value in dictionary1
+    /// dictionary1[.next]?.label = "New Next"
+    /// print(dictionary1[.next]?.label)  // Output: "New Next"
+    /// print(dictionary2[.next]?.label)  // Output: "New Next" (both dictionaries reference the same object)
+    /// ```
     private static func createButtonVM(pagerVM: PageViewModel<BookView>) -> [VisualCueKey: ButtonViewModel] {
         return [
             .next : ButtonHighlightViewModel(action: { _ = pagerVM.nextPage() }, label: "next"),
