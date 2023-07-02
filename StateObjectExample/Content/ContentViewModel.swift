@@ -13,6 +13,22 @@ struct ContentViewModel {
     
     var listenerVM: ListenerViewModel
     
+    init() {
+        let pagerVM = ContentViewModel.createPageViewModel()
+        
+        let visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
+        
+        let listernerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
+        
+        self.pagerVM = pagerVM
+        self.visualCueVM = visualCueVM
+        self.listenerVM = listernerVM
+        
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
     private static func createBookModels() -> [BookModel] {
         return [
             BookModel(title: "Title 1", summary: "Summary 1"),
@@ -65,21 +81,5 @@ struct ContentViewModel {
         }
         
         return listener
-    }
-    
-    init() {
-        let pagerVM = ContentViewModel.createPageViewModel()
-        
-        let visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
-        
-        let listernerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
-        
-        self.pagerVM = pagerVM
-        self.visualCueVM = visualCueVM
-        self.listenerVM = listernerVM
-        
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
     }
 }
