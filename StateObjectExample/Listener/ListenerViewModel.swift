@@ -14,7 +14,12 @@ enum ListenerKey: String {
 }
 
 class ListenerViewModel: ViewModel {
-    var onSend: (_ key: ListenerKey) -> Bool = { _ in false }
+    var onSend: (_ key: ListenerKey) -> Bool = { _ in
+#if DEBUG
+        assertionFailure("\(#function) Not implemented")
+#endif
+        return false
+    }
     
     func send(_ key: ListenerKey) -> Bool {
         return onSend(key)

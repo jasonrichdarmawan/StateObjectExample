@@ -57,6 +57,8 @@ struct ContentViewModel {
         self.visualCueVM = visualCueVM
         self.listenerVM = listener
         
+#if DEBUG
         print("\(type(of: self)) \(#function)")
+#endif
     }
 }

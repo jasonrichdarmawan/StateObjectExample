@@ -8,6 +8,10 @@
 import Foundation
 
 class ButtonViewModel: ViewModel {
+    
+    /// - `public action` - `private actionClosure` pattern
+    ///     - It listen everytime `var action` is getted and setted.
+    ///     - By listening, you can do something before, after `var action` is getted and setted.
     var action: () -> Void {
         get {
             return {
@@ -39,6 +43,8 @@ class ButtonViewModel: ViewModel {
     }
     
     private var actionClosure: () -> Void = {
-        fatalError("\(#function) Not Implemented")
+#if DEBUG
+        assertionFailure("\(#function) Not implemented")
+#endif
     }
 }
