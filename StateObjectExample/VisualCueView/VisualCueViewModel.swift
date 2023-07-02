@@ -13,11 +13,9 @@ enum VisualCueKey {
 }
 
 class VisualCueViewModel: ViewModel {
-    var buttonHighlightVM: [VisualCueKey: ButtonViewModel] = [:]
+    var buttonVM: [VisualCueKey: ButtonViewModel] = [:]
     
-    /// TODO: adhere to Dependency Inversion Principle
-    override init() {
-        buttonHighlightVM[.next] = ButtonHighlightViewModel(action: {}, label: "next")
-        buttonHighlightVM[.previous] = ButtonHighlightViewModel(action: {}, label: "previous")
+    init(buttonVM: [VisualCueKey: ButtonViewModel]) {
+        self.buttonVM = buttonVM
     }
 }

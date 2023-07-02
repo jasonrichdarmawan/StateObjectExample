@@ -27,27 +27,33 @@ struct ContentViewModel {
             }
         )
         
-        let visualCueVM = VisualCueViewModel()
-        visualCueVM.buttonHighlightVM[.next]!.action = { _ = pager.nextPage() }
-        visualCueVM.buttonHighlightVM[.previous]!.action = { _ = pager.previousPage() }
+        var buttonVM: [VisualCueKey: ButtonViewModel] = [:]
+        buttonVM[.next] = ButtonHighlightViewModel(action: { _ = pager.nextPage() }, label: "next")
+        buttonVM[.previous] = ButtonHighlightViewModel(action: { _ = pager.previousPage() }, label: "previous")
+        
+        let visualCueVM = VisualCueViewModel(buttonVM: buttonVM)
         
         let listener = ListenerViewModel()
         
         listener.onSend = { key in
             switch key {
             case .next:
-                if let vm = visualCueVM.buttonHighlightVM[.next] {
+                if let vm = visualCueVM.buttonVM[.next] {
                     vm.action()
                 }
             case .previous:
-                if let vm = visualCueVM.buttonHighlightVM[.previous] {
+                if let vm = visualCueVM.buttonVM[.previous] {
                     vm.action()
                 }
             case .destroy:
-                visualCueVM.buttonHighlightVM[.next]?.action = {}
-                visualCueVM.buttonHighlightVM[.next]?.label = "destroyed"
-                visualCueVM.buttonHighlightVM[.previous]?.action = {}
-                visualCueVM.buttonHighlightVM[.previous]?.label = "destroyed"
+                if let vm = visualCueVM.buttonVM[.next] {
+                    vm.action = {}
+                    vm.label = "destroyed"
+                }
+                if let vm = visualCueVM.buttonVM[.previous] {
+                    vm.action = {}
+                    vm.label = "destroyed"
+                }
             }
             
             return true
