@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class ContentViewModel: ObservableObject {
+struct ContentViewModel {
     var pagerVM: PageViewModel<BookView>
     var visualCueVM: VisualCueViewModel
     
@@ -58,5 +58,7 @@ class ContentViewModel: ObservableObject {
         self.pagerVM = pager
         self.visualCueVM = visualCueVM
         self.listenerVM = listener
+        
+        print("\(type(of: self)) \(#function)")
     }
 }

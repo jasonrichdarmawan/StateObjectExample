@@ -19,4 +19,10 @@ class VisualCueViewModel: ObservableObject {
         buttonHighlightVM[.next] = ButtonHighlightViewModel(action: {}, label: "next")
         buttonHighlightVM[.previous] = ButtonHighlightViewModel(action: {}, label: "previous")
     }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
 }

@@ -9,3 +9,6 @@
     3. `var data1: [Model1]`
     4. `var data2: [Model2]`
 3. "Model is just `var name: String`"
+
+TODO:
+- [ ] Decouple.

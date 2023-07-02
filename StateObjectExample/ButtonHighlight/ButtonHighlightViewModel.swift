@@ -25,4 +25,10 @@ class ButtonHighlightViewModel: ObservableObject {
         self.action = action
         self.label = label
     }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
 }

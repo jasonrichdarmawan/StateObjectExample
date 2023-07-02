@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var vm = ContentViewModel()
+    var vm = ContentViewModel()
     
     init() {
 #if DEBUG

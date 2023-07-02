@@ -18,6 +18,12 @@ class PageViewModel<Page: View>: ObservableObject {
 #endif
     }
     
+    deinit {
+#if DEBUG    
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
+    
     func endOfPage() -> Bool {
         return model.currentPage + 1 == model.pages.count
     }

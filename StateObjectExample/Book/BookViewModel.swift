@@ -13,4 +13,10 @@ class BookViewModel: ObservableObject {
     init(model: BookModel) {
         self.model = model
     }
+    
+    deinit {
+#if DEBUG
+        print("\(type(of: self)) \(#function)")
+#endif
+    }
 }
