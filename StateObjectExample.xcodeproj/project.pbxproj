@@ -24,6 +24,8 @@
 		9657DC8E2A4C7B42003CA477 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8D2A4C7B42003CA477 /* BookModel.swift */; };
 		9657DC902A4C86DE003CA477 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8F2A4C86DE003CA477 /* PageModel.swift */; };
 		967D09972A50054000C184CF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 967D09962A50054000C184CF /* README.md */; };
+		9693C19F2A51F66A00C8370A /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */; };
+		9693C1A42A52004E00C8370A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693C1A32A52004E00C8370A /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,8 @@
 		9657DC8D2A4C7B42003CA477 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
 		9657DC8F2A4C86DE003CA477 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		967D09962A50054000C184CF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
+		9693C1A32A52004E00C8370A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 		9657DC602A4C5BC3003CA477 /* StateObjectExample */ = {
 			isa = PBXGroup;
 			children = (
+				9693C1AA2A5204AE00C8370A /* Core */,
+				9693C1A12A52001D00C8370A /* Button */,
 				9657DC882A4C7B10003CA477 /* Book */,
 				9657DC822A4C69B6003CA477 /* ButtonHighlight */,
 				9657DC7A2A4C6974003CA477 /* Content */,
@@ -152,6 +158,22 @@
 				9657DC8D2A4C7B42003CA477 /* BookModel.swift */,
 			);
 			path = Book;
+			sourceTree = "<group>";
+		};
+		9693C1A12A52001D00C8370A /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		9693C1AA2A5204AE00C8370A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9693C1A32A52004E00C8370A /* ViewModel.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,10 +253,12 @@
 				9657DC872A4C69DD003CA477 /* ButtonHighlightViewModel.swift in Sources */,
 				9657DC8A2A4C7B22003CA477 /* BookView.swift in Sources */,
 				9657DC642A4C5BC3003CA477 /* ContentView.swift in Sources */,
+				9693C1A42A52004E00C8370A /* ViewModel.swift in Sources */,
 				9657DC8E2A4C7B42003CA477 /* BookModel.swift in Sources */,
 				9657DC712A4C68A8003CA477 /* PageView.swift in Sources */,
 				9657DC7C2A4C697F003CA477 /* ContentViewModel.swift in Sources */,
 				9657DC622A4C5BC3003CA477 /* StateObjectExampleApp.swift in Sources */,
+				9693C19F2A51F66A00C8370A /* ButtonViewModel.swift in Sources */,
 				9618C2D42A4DBAB000CB94F7 /* VisualCueViewModel.swift in Sources */,
 				9657DC842A4C69C0003CA477 /* ButtonHighlight.swift in Sources */,
 				9657DC812A4C69AA003CA477 /* ListenerViewModel.swift in Sources */,

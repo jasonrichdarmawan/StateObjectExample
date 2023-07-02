@@ -38,12 +38,10 @@ struct ContentViewModel {
             case .next:
                 if let vm = visualCueVM.buttonHighlightVM[.next] {
                     vm.action()
-                    vm.isHighlighted = true
                 }
             case .previous:
                 if let vm = visualCueVM.buttonHighlightVM[.previous] {
                     vm.action()
-                    vm.isHighlighted = true
                 }
             case .destroy:
                 visualCueVM.buttonHighlightVM[.next]?.action = {}

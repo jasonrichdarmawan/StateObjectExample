@@ -7,19 +7,13 @@
 
 import SwiftUI
 
-class PageViewModel<Page: View>: ObservableObject {
+class PageViewModel<Page: View>: ViewModel {
     @Published var model: PageModel<Page>
     
     init(pages: [Page]) {
         self.model = PageModel(pages: pages)
         
 #if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
-    }
-    
-    deinit {
-#if DEBUG    
         print("\(type(of: self)) \(#function)")
 #endif
     }

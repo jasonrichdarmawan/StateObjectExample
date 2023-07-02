@@ -42,6 +42,7 @@ struct ContentView: View {
                         action: { _ = vm.listenerVM.send(.destroy)},
                         label: "destroy"
                     )
+                    ButtonHighlight(vm: ButtonHighlightViewModel(label: "crash"))
                 }
             }
         }

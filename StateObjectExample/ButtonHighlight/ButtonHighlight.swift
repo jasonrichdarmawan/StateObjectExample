@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ButtonHighlight: View {
+    /// - TODO: adhere to Dependency inversion Principle
+    /// The Dependency Inversion Principle (DIP) states that high level modules should not depend on low level modules; both should depend on abstractions.
+    /// Abstractions should not depend on details. Details should depend upon abstractions.
     @StateObject var state: ButtonHighlightViewModel
     
     init(action: @escaping () -> Void, label: String) {
@@ -29,7 +32,6 @@ struct ButtonHighlight: View {
         
         return Button(
             action: {
-                state.isHighlighted = true
                 state.action()
             },
             label: {

@@ -7,16 +7,10 @@
 
 import Foundation
 
-class BookViewModel: ObservableObject {
+class BookViewModel: ViewModel {
     @Published var model: BookModel
     
     init(model: BookModel) {
         self.model = model
-    }
-    
-    deinit {
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
     }
 }

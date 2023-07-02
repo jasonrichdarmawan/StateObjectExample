@@ -12,17 +12,12 @@ enum VisualCueKey {
     case previous
 }
 
-class VisualCueViewModel: ObservableObject {
-    var buttonHighlightVM: [VisualCueKey: ButtonHighlightViewModel] = [:]
+class VisualCueViewModel: ViewModel {
+    var buttonHighlightVM: [VisualCueKey: ButtonViewModel] = [:]
     
-    init() {
+    /// TODO: adhere to Dependency Inversion Principle
+    override init() {
         buttonHighlightVM[.next] = ButtonHighlightViewModel(action: {}, label: "next")
         buttonHighlightVM[.previous] = ButtonHighlightViewModel(action: {}, label: "previous")
-    }
-    
-    deinit {
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
     }
 }

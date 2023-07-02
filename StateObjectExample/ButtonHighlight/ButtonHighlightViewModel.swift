@@ -7,28 +7,24 @@
 
 import Foundation
 
-class ButtonHighlightViewModel: ObservableObject {
-    var action: () -> Void
-    @Published var label: String
-    @Published var isHighlighted: Bool = false {
-        didSet {
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.isHighlighted = false
+class ButtonHighlightViewModel: ButtonViewModel {
+    override var action: () -> Void {
+        get {
+            return {
+                self.isHighlighted = true
+                super.action()
             }
+        }
+        set {
+            super.action = newValue
         }
     }
     
-    init(action: @escaping () -> Void, label: String) {
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
-        self.action = action
-        self.label = label
-    }
-    
-    deinit {
-#if DEBUG
-        print("\(type(of: self)) \(#function)")
-#endif
+    @Published private(set) var isHighlighted: Bool = false {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                self.isHighlighted = false
+            }
+        }
     }
 }

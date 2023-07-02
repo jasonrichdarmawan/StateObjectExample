@@ -13,7 +13,7 @@ enum ListenerKey: String {
     case destroy
 }
 
-class ListenerViewModel: ObservableObject {
+class ListenerViewModel: ViewModel {
     var onSend: (_ key: ListenerKey) -> Bool = { _ in false }
     
     func send(_ key: ListenerKey) -> Bool {
