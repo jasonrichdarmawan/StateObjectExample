@@ -13,26 +13,31 @@ struct ContentViewModel {
     
     var listenerVM: ListenerViewModel
     
-    init() {
-        let models = [
+    private static func createBookModels() -> [BookModel] {
+        return [
             BookModel(title: "Title 1", summary: "Summary 1"),
             BookModel(title: "Title 2", summary: "Summary 2"),
             BookModel(title: "Title 3", summary: "Summary 3"),
             BookModel(title: "Title 4", summary: "Summary 4")
         ]
-        
-        let pager = PageViewModel(
-            pages: models.map { model in
+    }
+    
+    private static func createPageViewModel() -> PageViewModel<BookView> {
+        return PageViewModel(
+            pages: ContentViewModel.createBookModels().map { model in
                 BookView(vm: BookViewModel(model: model))
             }
         )
-        
-        var buttonVM: [VisualCueKey: ButtonViewModel] = [:]
-        buttonVM[.next] = ButtonHighlightViewModel(action: { _ = pager.nextPage() }, label: "next")
-        buttonVM[.previous] = ButtonHighlightViewModel(action: { _ = pager.previousPage() }, label: "previous")
-        
-        let visualCueVM = VisualCueViewModel(buttonVM: buttonVM)
-        
+    }
+    
+    private static func createButtonVM(pagerVM: PageViewModel<BookView>) -> [VisualCueKey: ButtonViewModel] {
+        return [
+            .next : ButtonHighlightViewModel(action: { _ = pagerVM.nextPage() }, label: "next"),
+            .previous : ButtonHighlightViewModel(action: { _ = pagerVM.previousPage() }, label: "previous")
+        ]
+    }
+    
+    private static func createListenerVM(visualCueVM: VisualCueViewModel) -> ListenerViewModel {
         let listener = ListenerViewModel()
         
         listener.onSend = { key in
@@ -59,9 +64,19 @@ struct ContentViewModel {
             return true
         }
         
-        self.pagerVM = pager
+        return listener
+    }
+    
+    init() {
+        let pagerVM = ContentViewModel.createPageViewModel()
+        
+        let visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
+        
+        let listernerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
+        
+        self.pagerVM = pagerVM
         self.visualCueVM = visualCueVM
-        self.listenerVM = listener
+        self.listenerVM = listernerVM
         
 #if DEBUG
         print("\(type(of: self)) \(#function)")
