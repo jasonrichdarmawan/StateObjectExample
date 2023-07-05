@@ -14,7 +14,7 @@ struct ContentViewModel {
     var listenerVM: ListenerViewModel
     
     init() {
-        let pagerVM = ContentViewModel.createPageViewModel()
+        let pagerVM = ContentViewModel.createPageVM()
         
         let visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
         
@@ -38,7 +38,7 @@ struct ContentViewModel {
         ]
     }
     
-    private static func createPageViewModel() -> PageViewModel<BookView> {
+    private static func createPageVM() -> PageViewModel<BookView> {
         return PageViewModel(
             pages: ContentViewModel.createBookModels().map { model in
                 BookView(vm: BookViewModel(model: model))

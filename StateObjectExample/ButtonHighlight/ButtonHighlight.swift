@@ -38,7 +38,6 @@ struct ButtonHighlight: View {
                 Text(state.label)
             }
         )
-        .foregroundColor(.black)
         .padding(8)
         .background(state.isHighlighted ? .yellow : .clear)
         .cornerRadius(cornerRadius)
