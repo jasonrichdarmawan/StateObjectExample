@@ -75,7 +75,7 @@ struct BookListView: View {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        let dataSource = BookRemoteDataSource()
+        let dataSource = BookFakeDataSource()
         let repository = BookRepositoryImpl(dataSource: dataSource)
         let getBookUseCase = GetBookUseCaseImpl(repository: repository)
         BookListView(getBookUseCase: getBookUseCase)
