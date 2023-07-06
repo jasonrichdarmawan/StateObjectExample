@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var vm = ContentViewModel()
+struct BookListView: View {
+    var vm = BookListViewModel()
     
     init() {
 #if DEBUG
@@ -62,6 +62,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        BookListView()
     }
 }

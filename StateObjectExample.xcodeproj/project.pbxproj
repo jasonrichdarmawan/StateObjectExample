@@ -9,19 +9,19 @@
 /* Begin PBXBuildFile section */
 		9618C2D42A4DBAB000CB94F7 /* VisualCueViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9618C2D32A4DBAB000CB94F7 /* VisualCueViewModel.swift */; };
 		9657DC622A4C5BC3003CA477 /* StateObjectExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC612A4C5BC3003CA477 /* StateObjectExampleApp.swift */; };
-		9657DC642A4C5BC3003CA477 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC632A4C5BC3003CA477 /* ContentView.swift */; };
+		9657DC642A4C5BC3003CA477 /* BookListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC632A4C5BC3003CA477 /* BookListView.swift */; };
 		9657DC662A4C5BC4003CA477 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9657DC652A4C5BC4003CA477 /* Assets.xcassets */; };
 		9657DC692A4C5BC4003CA477 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9657DC682A4C5BC4003CA477 /* Preview Assets.xcassets */; };
 		9657DC712A4C68A8003CA477 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC702A4C68A7003CA477 /* PageView.swift */; };
 		9657DC732A4C68C4003CA477 /* PageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC722A4C68C4003CA477 /* PageViewModel.swift */; };
 		9657DC762A4C6941003CA477 /* VisualCueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC752A4C6941003CA477 /* VisualCueView.swift */; };
-		9657DC7C2A4C697F003CA477 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC7B2A4C697F003CA477 /* ContentViewModel.swift */; };
+		9657DC7C2A4C697F003CA477 /* BookListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC7B2A4C697F003CA477 /* BookListViewModel.swift */; };
 		9657DC812A4C69AA003CA477 /* ListenerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC802A4C69A9003CA477 /* ListenerViewModel.swift */; };
 		9657DC842A4C69C0003CA477 /* ButtonHighlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC832A4C69C0003CA477 /* ButtonHighlight.swift */; };
 		9657DC872A4C69DD003CA477 /* ButtonHighlightViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC862A4C69DD003CA477 /* ButtonHighlightViewModel.swift */; };
 		9657DC8A2A4C7B22003CA477 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC892A4C7B22003CA477 /* BookView.swift */; };
 		9657DC8C2A4C7B30003CA477 /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8B2A4C7B30003CA477 /* BookViewModel.swift */; };
-		9657DC8E2A4C7B42003CA477 /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8D2A4C7B42003CA477 /* BookModel.swift */; };
+		9657DC8E2A4C7B42003CA477 /* BookEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8D2A4C7B42003CA477 /* BookEntity.swift */; };
 		9657DC902A4C86DE003CA477 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9657DC8F2A4C86DE003CA477 /* PageModel.swift */; };
 		967D09972A50054000C184CF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 967D09962A50054000C184CF /* README.md */; };
 		9693C19F2A51F66A00C8370A /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */; };
@@ -32,19 +32,19 @@
 		9618C2D32A4DBAB000CB94F7 /* VisualCueViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualCueViewModel.swift; sourceTree = "<group>"; };
 		9657DC5E2A4C5BC3003CA477 /* StateObjectExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StateObjectExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9657DC612A4C5BC3003CA477 /* StateObjectExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateObjectExampleApp.swift; sourceTree = "<group>"; };
-		9657DC632A4C5BC3003CA477 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9657DC632A4C5BC3003CA477 /* BookListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListView.swift; sourceTree = "<group>"; };
 		9657DC652A4C5BC4003CA477 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9657DC682A4C5BC4003CA477 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9657DC702A4C68A7003CA477 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		9657DC722A4C68C4003CA477 /* PageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewModel.swift; sourceTree = "<group>"; };
 		9657DC752A4C6941003CA477 /* VisualCueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualCueView.swift; sourceTree = "<group>"; };
-		9657DC7B2A4C697F003CA477 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		9657DC7B2A4C697F003CA477 /* BookListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookListViewModel.swift; sourceTree = "<group>"; };
 		9657DC802A4C69A9003CA477 /* ListenerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListenerViewModel.swift; sourceTree = "<group>"; };
 		9657DC832A4C69C0003CA477 /* ButtonHighlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHighlight.swift; sourceTree = "<group>"; };
 		9657DC862A4C69DD003CA477 /* ButtonHighlightViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonHighlightViewModel.swift; sourceTree = "<group>"; };
 		9657DC892A4C7B22003CA477 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		9657DC8B2A4C7B30003CA477 /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
-		9657DC8D2A4C7B42003CA477 /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		9657DC8D2A4C7B42003CA477 /* BookEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookEntity.swift; sourceTree = "<group>"; };
 		9657DC8F2A4C86DE003CA477 /* PageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		967D09962A50054000C184CF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
@@ -82,15 +82,9 @@
 		9657DC602A4C5BC3003CA477 /* StateObjectExample */ = {
 			isa = PBXGroup;
 			children = (
+				96BD30E32A56A8520021821B /* Application */,
+				96BD30DB2A56A79C0021821B /* Features */,
 				9693C1AA2A5204AE00C8370A /* Core */,
-				9693C1A12A52001D00C8370A /* Button */,
-				9657DC882A4C7B10003CA477 /* Book */,
-				9657DC822A4C69B6003CA477 /* ButtonHighlight */,
-				9657DC7A2A4C6974003CA477 /* Content */,
-				9657DC772A4C695A003CA477 /* Listener */,
-				9657DC742A4C6933003CA477 /* VisualCueView */,
-				9657DC6F2A4C689D003CA477 /* Page */,
-				9657DC612A4C5BC3003CA477 /* StateObjectExampleApp.swift */,
 				9657DC652A4C5BC4003CA477 /* Assets.xcassets */,
 				9657DC672A4C5BC4003CA477 /* Preview Content */,
 			);
@@ -115,32 +109,6 @@
 			path = Page;
 			sourceTree = "<group>";
 		};
-		9657DC742A4C6933003CA477 /* VisualCueView */ = {
-			isa = PBXGroup;
-			children = (
-				9657DC752A4C6941003CA477 /* VisualCueView.swift */,
-				9618C2D32A4DBAB000CB94F7 /* VisualCueViewModel.swift */,
-			);
-			path = VisualCueView;
-			sourceTree = "<group>";
-		};
-		9657DC772A4C695A003CA477 /* Listener */ = {
-			isa = PBXGroup;
-			children = (
-				9657DC802A4C69A9003CA477 /* ListenerViewModel.swift */,
-			);
-			path = Listener;
-			sourceTree = "<group>";
-		};
-		9657DC7A2A4C6974003CA477 /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				9657DC632A4C5BC3003CA477 /* ContentView.swift */,
-				9657DC7B2A4C697F003CA477 /* ContentViewModel.swift */,
-			);
-			path = Content;
-			sourceTree = "<group>";
-		};
 		9657DC822A4C69B6003CA477 /* ButtonHighlight */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,9 +121,8 @@
 		9657DC882A4C7B10003CA477 /* Book */ = {
 			isa = PBXGroup;
 			children = (
-				9657DC892A4C7B22003CA477 /* BookView.swift */,
-				9657DC8B2A4C7B30003CA477 /* BookViewModel.swift */,
-				9657DC8D2A4C7B42003CA477 /* BookModel.swift */,
+				96BD30E12A56A8350021821B /* Domain */,
+				96BD30DC2A56A7AB0021821B /* Presentation */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -164,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				9693C19E2A51F66A00C8370A /* ButtonViewModel.swift */,
+				9657DC822A4C69B6003CA477 /* ButtonHighlight */,
 			);
 			path = Button;
 			sourceTree = "<group>";
@@ -171,9 +139,97 @@
 		9693C1AA2A5204AE00C8370A /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				9693C1A32A52004E00C8370A /* ViewModel.swift */,
+				96BD30D52A56A73E0021821B /* Presentation */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		96BD30D52A56A73E0021821B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC6F2A4C689D003CA477 /* Page */,
+				9693C1A12A52001D00C8370A /* Button */,
+				96BD30DA2A56A7810021821B /* ViewModels */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		96BD30DA2A56A7810021821B /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9693C1A32A52004E00C8370A /* ViewModel.swift */,
+				9657DC802A4C69A9003CA477 /* ListenerViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		96BD30DB2A56A79C0021821B /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC882A4C7B10003CA477 /* Book */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		96BD30DC2A56A7AB0021821B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				96BD30E52A56A9860021821B /* BookListView */,
+				96BD30E62A56A99D0021821B /* BookView */,
+				96BD30E72A56A9EF0021821B /* VisualCue */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		96BD30E12A56A8350021821B /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				96BD30E22A56A8390021821B /* Entities */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		96BD30E22A56A8390021821B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC8D2A4C7B42003CA477 /* BookEntity.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		96BD30E32A56A8520021821B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC612A4C5BC3003CA477 /* StateObjectExampleApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		96BD30E52A56A9860021821B /* BookListView */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC632A4C5BC3003CA477 /* BookListView.swift */,
+				9657DC7B2A4C697F003CA477 /* BookListViewModel.swift */,
+			);
+			path = BookListView;
+			sourceTree = "<group>";
+		};
+		96BD30E62A56A99D0021821B /* BookView */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC892A4C7B22003CA477 /* BookView.swift */,
+				9657DC8B2A4C7B30003CA477 /* BookViewModel.swift */,
+			);
+			path = BookView;
+			sourceTree = "<group>";
+		};
+		96BD30E72A56A9EF0021821B /* VisualCue */ = {
+			isa = PBXGroup;
+			children = (
+				9657DC752A4C6941003CA477 /* VisualCueView.swift */,
+				9618C2D32A4DBAB000CB94F7 /* VisualCueViewModel.swift */,
+			);
+			path = VisualCue;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,11 +308,11 @@
 				9657DC762A4C6941003CA477 /* VisualCueView.swift in Sources */,
 				9657DC872A4C69DD003CA477 /* ButtonHighlightViewModel.swift in Sources */,
 				9657DC8A2A4C7B22003CA477 /* BookView.swift in Sources */,
-				9657DC642A4C5BC3003CA477 /* ContentView.swift in Sources */,
+				9657DC642A4C5BC3003CA477 /* BookListView.swift in Sources */,
 				9693C1A42A52004E00C8370A /* ViewModel.swift in Sources */,
-				9657DC8E2A4C7B42003CA477 /* BookModel.swift in Sources */,
+				9657DC8E2A4C7B42003CA477 /* BookEntity.swift in Sources */,
 				9657DC712A4C68A8003CA477 /* PageView.swift in Sources */,
-				9657DC7C2A4C697F003CA477 /* ContentViewModel.swift in Sources */,
+				9657DC7C2A4C697F003CA477 /* BookListViewModel.swift in Sources */,
 				9657DC622A4C5BC3003CA477 /* StateObjectExampleApp.swift in Sources */,
 				9693C19F2A51F66A00C8370A /* ButtonViewModel.swift in Sources */,
 				9618C2D42A4DBAB000CB94F7 /* VisualCueViewModel.swift in Sources */,

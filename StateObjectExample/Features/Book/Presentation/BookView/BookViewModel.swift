@@ -8,9 +8,9 @@
 import Foundation
 
 class BookViewModel: ViewModel {
-    @Published var model: BookModel
+    @Published var model: BookEntity
     
-    init(model: BookModel) {
+    init(model: BookEntity) {
         self.model = model
     }
 }

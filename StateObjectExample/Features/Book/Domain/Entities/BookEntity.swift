@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct BookModel {
+struct BookEntity {
     let title: String
     let summary: String
 }

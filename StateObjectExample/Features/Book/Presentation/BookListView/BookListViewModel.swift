@@ -7,36 +7,36 @@
 
 import SwiftUI
 
-struct ContentViewModel {
+struct BookListViewModel {
     var pagerVM: PageViewModel<BookView>
     var visualCueVM: VisualCueViewModel
     
     var listenerVM: ListenerViewModel
     
     init() {
-        self.pagerVM = ContentViewModel.createPageVM()
+        self.pagerVM = BookListViewModel.createPageVM()
         
-        self.visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
+        self.visualCueVM = VisualCueViewModel(buttonVM: BookListViewModel.createButtonVM(pagerVM: pagerVM))
         
-        self.listenerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
+        self.listenerVM = BookListViewModel.createListenerVM(visualCueVM: visualCueVM)
         
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
     }
     
-    private static func createBookModels() -> [BookModel] {
+    private static func createBookModels() -> [BookEntity] {
         return [
-            BookModel(title: "Title 1", summary: "Summary 1"),
-            BookModel(title: "Title 2", summary: "Summary 2"),
-            BookModel(title: "Title 3", summary: "Summary 3"),
-            BookModel(title: "Title 4", summary: "Summary 4")
+            BookEntity(title: "Title 1", summary: "Summary 1"),
+            BookEntity(title: "Title 2", summary: "Summary 2"),
+            BookEntity(title: "Title 3", summary: "Summary 3"),
+            BookEntity(title: "Title 4", summary: "Summary 4")
         ]
     }
     
     private static func createPageVM() -> PageViewModel<BookView> {
         return PageViewModel(
-            pages: ContentViewModel.createBookModels().map { model in
+            pages: BookListViewModel.createBookModels().map { model in
                 BookView(vm: BookViewModel(model: model))
             }
         )
