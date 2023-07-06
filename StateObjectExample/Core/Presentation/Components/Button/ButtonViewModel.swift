@@ -29,9 +29,8 @@ class ButtonViewModel: ViewModel {
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
-        super.init()
         
-        self.action = action
+        self.actionClosure = action
         self.label = label
     }
     

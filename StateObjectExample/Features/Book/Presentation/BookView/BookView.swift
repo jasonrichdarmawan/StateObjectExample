@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct BookView: View {
-    @ObservedObject var vm: BookViewModel
+    let entity: BookEntity
     
     var body: some View {
         VStack {
-            Text(vm.model.title)
-            Text(vm.model.summary)
+            Text(entity.title)
+            Text(entity.summary)
         }
         .onAppear {
 #if DEBUG

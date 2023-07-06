@@ -8,9 +8,16 @@
 import SwiftUI
 
 struct BookListView: View {
-    var vm = BookListViewModel()
+    @StateObject private var pageVM: PageViewModel
+    @State var entity: BookEntity?
     
-    init() {
+    private let getBookUseCase: GetBookuseCase
+    
+    init(getBookUseCase: GetBookuseCase) {
+        _pageVM = StateObject(wrappedValue: PageViewModel())
+        
+        self.getBookUseCase = getBookUseCase
+        
 #if DEBUG
         print("\(type(of: self)) \(#function)")
 #endif
@@ -18,31 +25,18 @@ struct BookListView: View {
     
     var body: some View {
         VStack {
-            VStack {
-                Text("PageView")
-                PageView(vm: vm.pagerVM)
+            if let currentPage = pageVM.currentPage {
+                Text("current page \(currentPage)")
             }
-            VStack {
-                Text("VisualCueView")
-                VisualCueView(vm: vm.visualCueVM, pager: vm.pagerVM)
+            if let entity {
+                BookView(entity: entity)
             }
-            
-            VStack {
-                Text("user input to ListenerViewModel")
-                HStack {
-                    ButtonHighlight(
-                        action: { _ = vm.listenerVM.send(.previous) },
-                        label: "previous"
-                    )
-                    ButtonHighlight(
-                        action: { _ = vm.listenerVM.send(.next) },
-                        label: "next"
-                    )
-                    ButtonHighlight(
-                        action: { _ = vm.listenerVM.send(.destroy)},
-                        label: "destroy"
-                    )
-                    ButtonHighlight(vm: ButtonHighlightViewModel(label: "crash"))
+            HStack {
+                if !pageVM.isBeginningOfPage() {
+                    ButtonHighlight(action: { _ = pageVM.previousPage() }, label: "Previous")
+                }
+                if !pageVM.isEndOfPage() {
+                    ButtonHighlight(action: { _ = pageVM.nextPage()}, label: "Next")
                 }
             }
         }
@@ -51,7 +45,22 @@ struct BookListView: View {
 #if DEBUG
             print("\(type(of: self)) \(#function) appeared")
 #endif
+            pageVM.currentPage = 1
         }
+        .onChange(of: pageVM.currentPage, perform: { newValue in
+            if let currentPage = newValue {
+                let response = getBookUseCase.getBook(id: currentPage)
+
+                // internet is down / datasource is down case
+                if response.entity == nil {
+                    pageVM.currentPage = 1
+                    return
+                }
+                
+                entity = response.entity
+                pageVM.count = response.count
+            }
+        })
         .onDisappear {
 #if DEBUG
             print("\(type(of: self)) \(#function) disappeared")
@@ -60,8 +69,13 @@ struct BookListView: View {
     }
 }
 
+#if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        BookListView()
+        let dataSource = BookRemoteDataSource()
+        let repository = BookRepositoryImpl(dataSource: dataSource)
+        let getBookUseCase = GetBookUseCaseImpl(repository: repository)
+        BookListView(getBookUseCase: getBookUseCase)
     }
 }
+#endif

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct BookEntity {
+struct BookEntity: Identifiable {
+    let id: UUID
     let title: String
     let summary: String
 }

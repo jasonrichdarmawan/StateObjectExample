@@ -11,7 +11,14 @@ import SwiftUI
 struct StateObjectExampleApp: App {
     var body: some Scene {
         WindowGroup {
-            BookListView()
+#if DEBUG
+            let dataSource = BookFakeDataSource()
+#else
+            let dataSource = BookRemoteDataSource()
+#endif
+            let repository = BookRepositoryImpl(dataSource: dataSource)
+            let getBookUseCase = GetBookUseCaseImpl(repository: repository)
+            BookListView(getBookUseCase: getBookUseCase)
         }
     }
 }
