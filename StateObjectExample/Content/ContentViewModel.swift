@@ -14,15 +14,11 @@ struct ContentViewModel {
     var listenerVM: ListenerViewModel
     
     init() {
-        let pagerVM = ContentViewModel.createPageVM()
+        self.pagerVM = ContentViewModel.createPageVM()
         
-        let visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
+        self.visualCueVM = VisualCueViewModel(buttonVM: ContentViewModel.createButtonVM(pagerVM: pagerVM))
         
-        let listernerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
-        
-        self.pagerVM = pagerVM
-        self.visualCueVM = visualCueVM
-        self.listenerVM = listernerVM
+        self.listenerVM = ContentViewModel.createListenerVM(visualCueVM: visualCueVM)
         
 #if DEBUG
         print("\(type(of: self)) \(#function)")
