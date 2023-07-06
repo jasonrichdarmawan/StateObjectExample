@@ -10,7 +10,7 @@ import Foundation
 protocol BookRepository {
     /// - Parameters:
     ///     - count: how many books are there in the data source?
-    func getBook(id: UInt32) -> (entity: BookEntity?, count: UInt32?)
+    func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?)
 }
 
 class BookRepositoryImpl: BookRepository {
@@ -23,8 +23,8 @@ class BookRepositoryImpl: BookRepository {
         self.dataSource = dataSource
     }
     
-    func getBook(id: UInt32) -> (entity: BookEntity?, count: UInt32?) {
-        let response = dataSource.getBook(id: id)
+    func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?) {
+        let response = await dataSource.getBook(id: id)
         
         return (
             entity: response?.data?.toDomain(),

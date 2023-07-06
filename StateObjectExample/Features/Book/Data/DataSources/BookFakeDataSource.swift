@@ -15,7 +15,7 @@ class BookFakeDataSource: BookDataSource {
 #endif
     }
     
-    func getBook(id: UInt32) -> GetBookModel? {
+    func getBook(id: UInt32) async -> GetBookModel? {
         return GetBookModel(
             data: BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) }),
             meta: GetBookModel.MetaModel(count: String(BookFakeDataSource.fakeDataSource.count))

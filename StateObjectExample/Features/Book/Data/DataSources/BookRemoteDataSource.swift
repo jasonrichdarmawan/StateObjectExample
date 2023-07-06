@@ -8,7 +8,7 @@
 import Foundation
 
 class BookRemoteDataSource: BookDataSource {
-    func getBook(id: UInt32) -> GetBookModel? {
+    func getBook(id: UInt32) async -> GetBookModel? {
         guard let url = URL(string: "https://raw.githubusercontent.com/jasonrichdarmawan/StateObjectExampleRemoteDataSource/main/api/getbooks.json") else {
             return nil
         }

@@ -10,7 +10,7 @@ import Foundation
 protocol GetBookuseCase {
     /// - Parameters:
     ///     - count: how many books are there in the data source?
-    func getBook(id: UInt32) -> (entity: BookEntity?, count: UInt32?)
+    func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?)
 }
 
 class GetBookUseCaseImpl: GetBookuseCase {
@@ -23,7 +23,7 @@ class GetBookUseCaseImpl: GetBookuseCase {
         self.repository = repository
     }
     
-    func getBook(id: UInt32) -> (entity: BookEntity?, count: UInt32?) {
-        return repository.getBook(id: id)
+    func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?) {
+        return await repository.getBook(id: id)
     }
 }

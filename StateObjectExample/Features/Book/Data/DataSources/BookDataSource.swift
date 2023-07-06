@@ -8,6 +8,6 @@
 import Foundation
 
 protocol BookDataSource {
-    /// - TODO: asynchronous
-    func getBook(id: UInt32) -> GetBookModel?
+    /// - TODO: completion pattern instead of async
+    func getBook(id: UInt32) async -> GetBookModel?
 }
