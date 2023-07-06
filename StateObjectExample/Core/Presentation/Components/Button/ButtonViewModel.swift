@@ -27,7 +27,7 @@ class ButtonViewModel: ViewModel {
     
     init(action: @escaping () -> Void, label: String) {
 #if DEBUG
-        print("\(type(of: self)) \(#function)")
+        print("\(type(of: self)) \(#function) \(label)")
 #endif
         
         self.actionClosure = action
@@ -36,7 +36,7 @@ class ButtonViewModel: ViewModel {
     
     init(label: String) {
 #if DEBUG
-        print("\(type(of: self)) \(#function)")
+        print("\(type(of: self)) \(#function) \(label)")
 #endif
         self.label = label
     }

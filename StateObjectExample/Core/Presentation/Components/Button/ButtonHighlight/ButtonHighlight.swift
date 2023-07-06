@@ -15,14 +15,14 @@ struct ButtonHighlight: View {
     
     init(action: @escaping () -> Void, label: String) {
 #if DEBUG
-        print("\(type(of: self)) \(#function)")
+        print("\(type(of: self)) \(#function) \(label)")
 #endif
         self._state = StateObject(wrappedValue: ButtonHighlightViewModel(action: action, label: label))
     }
     
     init(vm: ButtonHighlightViewModel) {
 #if DEBUG
-        print("\(type(of: self)) \(#function)")
+        print("\(type(of: self)) \(#function) \(vm.label)")
 #endif
         self._state = StateObject(wrappedValue: vm)
     }
@@ -47,12 +47,12 @@ struct ButtonHighlight: View {
         }
         .onAppear {
 #if DEBUG
-            print("\(type(of: self)) \(#function) appeared")
+            print("\(type(of: self)) \(#function) \(state.label) appeared")
 #endif
         }
         .onDisappear() {
 #if DEBUG
-            print("\(type(of: self)) \(#function) disappeared")
+            print("\(type(of: self)) \(#function) \(state.label) disappeared")
 #endif
         }
     }
