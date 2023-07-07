@@ -10,8 +10,9 @@ import Foundation
 protocol GetBookuseCase {
     /// - Parameters:
     ///     - count: how many books are there in the data source?
-    @available(*, deprecated, message: "use getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32)) -> Void")
+    /// - TODO: handle errror
     func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?)
+    @available(*, deprecated, message: "use getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?)")
     func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void)
 }
 
@@ -30,12 +31,8 @@ class GetBookUseCaseImpl: GetBookuseCase {
     }
     
     func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) {
-        var result: ((entity: BookEntity?, count: UInt32?))
-
-        repository.getBook(id: id, completion: { response in
-            result = response
+        repository.getBook(id: id, completion: { result in
+            completion(result)
         })
-        
-        completion(result)
     }
 }

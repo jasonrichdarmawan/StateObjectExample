@@ -49,30 +49,30 @@ struct BookListView: View {
         }
         .onChange(of: pageVM.currentPage, perform: { newValue in
             if let currentPage = newValue {
-//                Task {
-//                    let response = await getBookUseCase.getBook(id: currentPage)
-//
-//                    // internet is down / datasource is down case
-//                    if response.entity == nil {
-//                        pageVM.currentPage = 1
-//                        return
-//                    }
-//
-//                    entity = response.entity
-//                    pageVM.count = response.count
-//                }
-                
-                DispatchQueue.global().async {
-                    getBookUseCase.getBook(id: currentPage, completion: { response in
-                        if response.entity == nil {
-                            pageVM.currentPage = 1
-                            return
-                        }
+                Task(priority: .background) {
+                    let response = await getBookUseCase.getBook(id: currentPage)
 
-                        entity = response.entity
-                        pageVM.count = response.count
-                    })
+                    // internet is down / datasource is down case
+                    if response.entity == nil {
+                        pageVM.currentPage = 1
+                        return
+                    }
+
+                    entity = response.entity
+                    pageVM.count = response.count
                 }
+                
+//                DispatchQueue.global().async {
+//                    getBookUseCase.getBook(id: currentPage, completion: { response in
+//                        if response.entity == nil {
+//                            pageVM.currentPage = 1
+//                            return
+//                        }
+//
+//                        entity = response.entity
+//                        pageVM.count = response.count
+//                    })
+//                }
             }
         })
         .onDisappear {

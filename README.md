@@ -10,6 +10,8 @@
     4. `var data2: [Model2]`
 3. "Model is just `var name: String`"
 
+4. completion handler is bad. async/await pattern is better.
+
 TODO:
 - [x] Decouple.
 

@@ -13,20 +13,18 @@ class BookRemoteDataSource: BookDataSource {
         
         let data = response?.data?.first(where: { $0.id == String(id) })
         let meta = GetBookModel.MetaModel(count: response?.meta?.count)
-        
-        return GetBookModel(data: data, meta: meta)
+        let getBookModel = GetBookModel(data: data, meta: meta)
+        return getBookModel
     }
     
     func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) {
-        var result: GetBookModel?
-        
-        getBooks(id: id, completion: { response in
-            let data = response?.data?.first(where: { $0.id == String(id) })
-            let meta = GetBookModel.MetaModel(count: response?.meta?.count)
-            result = GetBookModel(data: data, meta: meta)
+        getBooks(id: id, completion: { result in
+            let data = result?.data?.first(where: { $0.id == String(id) })
+            let meta = GetBookModel.MetaModel(count: result?.meta?.count)
+            let getBookModel = GetBookModel(data: data, meta: meta)
+            completion(getBookModel)
+            return
         })
-        
-        completion(result)
     }
 }
 
@@ -63,6 +61,7 @@ extension BookRemoteDataSource {
             let decoder = JSONDecoder()
             let response = try decoder.decode(GetBooksModel.self, from: data)
             completion(response)
+            return
         } catch {
             print("\(type(of: self)) \(#function) Error fetching or decoding JSON \(error)")
             return

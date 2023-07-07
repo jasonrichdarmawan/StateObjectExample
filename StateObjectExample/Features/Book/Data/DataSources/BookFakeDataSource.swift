@@ -17,10 +17,10 @@ class BookFakeDataSource: BookDataSource {
     
     func getBook(id: UInt32) async -> GetBookModel? {
         sleep(2)
-        return GetBookModel(
-            data: BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) }),
-            meta: GetBookModel.MetaModel(count: String(BookFakeDataSource.fakeDataSource.count))
-        )
+        let data = BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) })
+        let meta = GetBookModel.MetaModel(count: String(BookFakeDataSource.fakeDataSource.count))
+        let getBookModel = GetBookModel(data: data, meta: meta)
+        return getBookModel
     }
     
     func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) {
@@ -28,7 +28,9 @@ class BookFakeDataSource: BookDataSource {
         let data = BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) })
         let count = BookFakeDataSource.fakeDataSource.count
         let meta = GetBookModel.MetaModel(count: String(count))
-        completion(GetBookModel(data: data, meta: meta))
+        let getBookModel = GetBookModel(data: data, meta: meta)
+        completion(getBookModel)
+        return
     }
 }
 
