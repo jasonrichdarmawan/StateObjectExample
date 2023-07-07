@@ -28,7 +28,9 @@ class BookRemoteDataSource: BookDataSource {
         
         completion(result)
     }
-    
+}
+
+extension BookRemoteDataSource {
     private func getBooks(id: UInt32) async -> GetBooksModel? {
 #if DEBUG
         sleep(2)
