@@ -11,6 +11,8 @@ import SwiftUI
 struct StateObjectExampleApp: App {
     var body: some Scene {
         WindowGroup {
+            let pageVM = PageViewModel()
+            
 #if DEBUG
             let dataSource = BookFakeDataSource()
 #else
@@ -18,7 +20,7 @@ struct StateObjectExampleApp: App {
 #endif
             let repository = BookRepositoryImpl(dataSource: dataSource)
             let getBookUseCase = GetBookUseCaseImpl(repository: repository)
-            BookListView(getBookUseCase: getBookUseCase)
+            BookListView(pageVM: pageVM, getBookUseCase: getBookUseCase)
         }
     }
 }

@@ -13,8 +13,8 @@ struct BookListView: View {
     
     private let getBookUseCase: GetBookuseCase
     
-    init(getBookUseCase: GetBookuseCase) {
-        _pageVM = StateObject(wrappedValue: PageViewModel())
+    init(pageVM: PageViewModel, getBookUseCase: GetBookuseCase) {
+        _pageVM = StateObject(wrappedValue: pageVM)
         
         self.getBookUseCase = getBookUseCase
         
@@ -86,10 +86,12 @@ struct BookListView: View {
 #if DEBUG
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        let pageVM = PageViewModel()
+        
         let dataSource = BookFakeDataSource()
         let repository = BookRepositoryImpl(dataSource: dataSource)
         let getBookUseCase = GetBookUseCaseImpl(repository: repository)
-        BookListView(getBookUseCase: getBookUseCase)
+        BookListView(pageVM: pageVM, getBookUseCase: getBookUseCase)
     }
 }
 #endif

@@ -16,6 +16,7 @@ class BookFakeDataSource: BookDataSource {
     }
     
     func getBook(id: UInt32) async -> GetBookModel? {
+        sleep(2)
         return GetBookModel(
             data: BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) }),
             meta: GetBookModel.MetaModel(count: String(BookFakeDataSource.fakeDataSource.count))
@@ -23,6 +24,7 @@ class BookFakeDataSource: BookDataSource {
     }
     
     func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) async {
+        sleep(2)
         let data = BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) })
         let count = BookFakeDataSource.fakeDataSource.count
         let meta = GetBookModel.MetaModel(count: String(count))

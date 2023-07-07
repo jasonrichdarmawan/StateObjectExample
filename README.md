@@ -11,4 +11,8 @@
 3. "Model is just `var name: String`"
 
 TODO:
-- [ ] Decouple.
+- [x] Decouple.
+
+Definitions:
+- DEBUG is in preview and in phone, should only use fake data source.
+- REELEASE is ONLY in phone, should only use remote data source.
