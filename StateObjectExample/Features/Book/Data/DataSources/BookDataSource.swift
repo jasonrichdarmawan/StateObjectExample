@@ -11,5 +11,5 @@ protocol BookDataSource {
     /// - TODO: completion pattern instead of async
     @available(*, deprecated, message: "use getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void)")
     func getBook(id: UInt32) async -> GetBookModel?
-    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) async
+    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void)
 }

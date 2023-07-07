@@ -12,7 +12,7 @@ protocol GetBookuseCase {
     ///     - count: how many books are there in the data source?
     @available(*, deprecated, message: "use getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32)) -> Void")
     func getBook(id: UInt32) async -> (entity: BookEntity?, count: UInt32?)
-    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) async
+    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void)
 }
 
 class GetBookUseCaseImpl: GetBookuseCase {
@@ -29,10 +29,10 @@ class GetBookUseCaseImpl: GetBookuseCase {
         return await repository.getBook(id: id)
     }
     
-    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) async {
+    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) {
         var result: ((entity: BookEntity?, count: UInt32?))
 
-        await repository.getBook(id: id, completion: { response in
+        repository.getBook(id: id, completion: { response in
             result = response
         })
         

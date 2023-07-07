@@ -26,10 +26,10 @@ class BookRepositoryImpl: BookRepository {
         )
     }
     
-    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) async {
+    func getBook(id: UInt32, completion: @escaping ((entity: BookEntity?, count: UInt32?)) -> Void) {
         var result: GetBookModel?
         
-        await dataSource.getBook(id: id, completion: { response in
+        dataSource.getBook(id: id, completion: { response in
             result = response
         })
         

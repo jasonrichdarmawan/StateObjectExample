@@ -23,7 +23,7 @@ class BookFakeDataSource: BookDataSource {
         )
     }
     
-    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) async {
+    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) {
         sleep(2)
         let data = BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) })
         let count = BookFakeDataSource.fakeDataSource.count

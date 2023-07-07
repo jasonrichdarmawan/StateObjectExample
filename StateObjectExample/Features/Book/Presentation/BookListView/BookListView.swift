@@ -62,8 +62,8 @@ struct BookListView: View {
 //                    pageVM.count = response.count
 //                }
                 
-                Task {
-                    await getBookUseCase.getBook(id: currentPage, completion: { response in
+                DispatchQueue.global().async {
+                    getBookUseCase.getBook(id: currentPage, completion: { response in
                         if response.entity == nil {
                             pageVM.currentPage = 1
                             return

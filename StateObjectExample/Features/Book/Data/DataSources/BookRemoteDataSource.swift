@@ -17,10 +17,10 @@ class BookRemoteDataSource: BookDataSource {
         return GetBookModel(data: data, meta: meta)
     }
     
-    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) async {
+    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) {
         var result: GetBookModel?
         
-        await getBooks(id: id, completion: { response in
+        getBooks(id: id, completion: { response in
             let data = response?.data?.first(where: { $0.id == String(id) })
             let meta = GetBookModel.MetaModel(count: response?.meta?.count)
             result = GetBookModel(data: data, meta: meta)
@@ -48,7 +48,7 @@ class BookRemoteDataSource: BookDataSource {
         }
     }
     
-    private func getBooks(id: UInt32, completion: @escaping (GetBooksModel?) -> Void) async {
+    private func getBooks(id: UInt32, completion: @escaping (GetBooksModel?) -> Void) {
 #if DEBUG
         sleep(2)
 #endif
@@ -57,7 +57,7 @@ class BookRemoteDataSource: BookDataSource {
         }
         
         do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+            let data = try Data(contentsOf: url)
             let decoder = JSONDecoder()
             let response = try decoder.decode(GetBooksModel.self, from: data)
             completion(response)
