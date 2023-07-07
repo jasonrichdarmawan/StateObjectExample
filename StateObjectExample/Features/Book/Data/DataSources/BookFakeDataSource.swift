@@ -21,6 +21,13 @@ class BookFakeDataSource: BookDataSource {
             meta: GetBookModel.MetaModel(count: String(BookFakeDataSource.fakeDataSource.count))
         )
     }
+    
+    func getBook(id: UInt32, completion: @escaping (GetBookModel?) -> Void) async {
+        let data = BookFakeDataSource.fakeDataSource.first(where: { $0.id == String(id) })
+        let count = BookFakeDataSource.fakeDataSource.count
+        let meta = GetBookModel.MetaModel(count: String(count))
+        completion(GetBookModel(data: data, meta: meta))
+    }
 }
 
 extension BookFakeDataSource {

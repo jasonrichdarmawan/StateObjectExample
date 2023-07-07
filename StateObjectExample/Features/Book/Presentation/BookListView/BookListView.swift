@@ -48,19 +48,30 @@ struct BookListView: View {
             pageVM.currentPage = 1
         }
         .onChange(of: pageVM.currentPage, perform: { newValue in
-            /// - TODO: use completion parameter pattern
             if let currentPage = newValue {
+//                Task {
+//                    let response = await getBookUseCase.getBook(id: currentPage)
+//
+//                    // internet is down / datasource is down case
+//                    if response.entity == nil {
+//                        pageVM.currentPage = 1
+//                        return
+//                    }
+//
+//                    entity = response.entity
+//                    pageVM.count = response.count
+//                }
+                
                 Task {
-                    let response = await getBookUseCase.getBook(id: currentPage)
+                    await getBookUseCase.getBook(id: currentPage, completion: { response in
+                        if response.entity == nil {
+                            pageVM.currentPage = 1
+                            return
+                        }
 
-                    // internet is down / datasource is down case
-                    if response.entity == nil {
-                        pageVM.currentPage = 1
-                        return
-                    }
-                    
-                    entity = response.entity
-                    pageVM.count = response.count
+                        entity = response.entity
+                        pageVM.count = response.count
+                    })
                 }
             }
         })
